@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+
+  <title>Donut Chart - Flipped Labels</title>
+
+	<!-- D3.js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+	<!-- Month names -->
+	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+
+  </head>
+  <body>
+    <h1 class="header-title">Budget Calculator</h1>
+<div class="parent-container">
+  <div class="left">
+    <div class="add__menu">
+      <div class="desc_menu">
+        <input class="add-name" type="text" placeholder="Add Description">
+        <select class="add__type">
+                            <option value="inc" selected>+</option>
+                            <option value="exp">-</option>
+        </select>
+      </div>
+      <div>
+        <input class="add-value" type="number" placeholder="Add number">
+        <button class="submit-btn"><i class="ion-ios-checkmark-outline"></i></button>
+
+      </div>
+
+
+    </div>
+
+  </div>
+  <div class="center">
+    <div id="chart"></div>
+  </div>
+  <div class="right">
+    <div class="container">
+      <div class="income">
+        <h2 class="income__title">Income</h2>
+        <div class="income__list"></div>
+
+        <div class="item clearfix" id="income-0">
+                          <div class="item__description">Salary</div>
+                          <div class="right clearfix">
+                              <div class="item__value">+ 2,100.00</div>
+                              <div class="item__delete">
+                                  <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                              </div>
+                          </div>
+          </div>
+          <div class="item clearfix" id="income-0">
+                            <div class="item__description">Salary</div>
+                            <div class="right clearfix">
+                                <div class="item__value">+ 2,100.00</div>
+                                <div class="item__delete">
+                                    <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                                </div>
+                            </div>
+            </div>
+      </div>
+    </div>
+    <div class="expenses">
+      <h2 class="expenses__title">Expenses</h2>
+      <div class="expenses__list">
+        <div class="item clearfix" id="expense-1">
+                            <div class="item__description">Grocery shopping</div>
+                            <div class="right clearfix">
+                                <div class="item__value">- 435.28</div>
+                                <div class="item__percentage">10%</div>
+                                <div class="item__delete">
+                                    <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                                </div>
+                            </div>
+                        </div>
+        <div class="item clearfix" id="expense-1">
+                                            <div class="item__description">Grocery shopping</div>
+                                            <div class="right clearfix">
+                                                <div class="item__value">- 435.28</div>
+                                                <div class="item__percentage">10%</div>
+                                                <div class="item__delete">
+                                                    <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="pie.js"></script>
+  </body>
+</html>
