@@ -3,9 +3,15 @@
 $slate: blue;
 $item: white;
 $primary: TOMATO;
-$background: white;
+$background: #f8f9fa;
 $text-color: black;
 $borderCard: #FFDAD9;
+input[type="button"]{
+   outline:none;
+}
+input[type="button"]::-moz-focus-inner {
+   border: 0;
+}
 
 * {
   margin: 0;
@@ -34,15 +40,18 @@ h1 {
   margin: 0 auto;
   background-color: $background;
   .left-side {
-    background-color: $item;
+    background-color: $background;
     padding: 5px;
     width: 400px;
+    .add__menu {
+      background-color: $item;
+    }
 
     // order: 2
   }
   .right-side{
     text-align: center;
-    background-color: $background;
+    background-color: $item;
     border-radius: 5px;
     box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.1);
     padding: 5px;
@@ -52,6 +61,13 @@ h1 {
   }
   .center {
     // order: 1
+    // border: 1px solid black;
+    background-color: $item;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+
+
   }
 }
 .add__menu{
@@ -109,7 +125,7 @@ h1 {
 /* item */
 .item {
   color: $text-color;
-  border: 1px solid #e7e7e7;
+  border: 1px solid item;
   border-radius: 5px;
   margin: 2px auto;
   display: block;
@@ -203,6 +219,12 @@ h1 {
     display: none;
 }
 
+.submit-btn:active { transform: translateY(2px); }
+.submit-btn:focus {
+    outline: none;
+    // border: 1px solid #28B9B5;
+}
+
 .item__delete--btn:focus { outline: none; }
 .item__delete--btn:active { transform: translateY(2px); }
 
@@ -229,12 +251,17 @@ h1 {
   align-items: center;
   width: 100%;
 }
+#chart {
+  // border:1px solid black;
+
+}
 .center {
   order: 1;
 }
 .left-side {
   order: 2;
   width: 500px;
+
 }
 .right-side {
   order: 3;
