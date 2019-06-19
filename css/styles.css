@@ -1,41 +1,48 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border: 1px solid white; }
+  font-family: 'Opens Sans',sans-serif; }
 
 body {
   background-color: white; }
 
 .header-title {
   text-align: center;
-  font-size: 32px;
+  font-size: 40px;
   margin: 30px 0px; }
 
 h1 {
-  color: #bb86fc; }
+  color: #bdc3c7; }
 
 .parent-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 1000px;
-  border: 1px solid black;
   margin: 0 auto;
   background-color: white; }
-  .parent-container .left {
-    background-color: grey;
-    padding: 5px;
-    width: 400px; }
-  .parent-container .right {
-    text-align: center;
+  .parent-container .left-side {
     background-color: white;
     padding: 5px;
-    width: 100%; }
+    width: 400px; }
+  .parent-container .right-side {
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    width: 100%;
+    border: 1px solid #FFDAD9; }
 
 .add__menu {
-  border: 1px solid pink;
+  border: 1px solid #FFDAD9;
+  -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
   text-align: center;
   margin-top: 20px;
   display: -webkit-box;
@@ -86,13 +93,84 @@ h1 {
   font-size: 30px;
   margin-bottom: 5px; }
 
+.income {
+  margin-bottom: 30px; }
+
 /* item */
 .item {
-  background-color: #3c4042;
-  color: black; }
+  color: black;
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+  margin: 2px auto;
+  display: block; }
+  .item .right {
+    width: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+
+.item .item__value {
+  color: transform 3s;
+  padding-top: 10px; }
+
+.item {
+  padding: 13px;
+  border-bottom: 1px solid #e7e7e7; }
+
+.item:first-child {
+  border-top: 1px solid #e7e7e7; }
+
+.item:nth-child(even) {
+  background-color: #f7f7f7; }
+
+.item__description {
+  float: left; }
+
+.item__value {
+  float: left;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s; }
+
+.item__percentage {
+  float: left;
+  margin-left: 20px;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  font-size: 11px;
+  background-color: #FFDAD9;
+  padding: 3px;
+  border-radius: 3px;
+  width: 32px;
+  text-align: center; }
+
+.income .item__value,
+.income .item__delete--btn {
+  color: #28B9B5; }
+
+.expenses .item__value,
+.expenses .item__percentage,
+.expenses .item__delete--btn {
+  color: #FF5049; }
 
 .item__delete {
   float: left; }
+
+.item__delete--btn {
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  display: none; }
 
 .item__delete--btn {
   font-size: 22px;
@@ -124,6 +202,10 @@ h1 {
 
 /* media query */
 @media screen and (max-width: 1050px) {
+  .add__menu {
+    margin-bottom: 20px; }
+  .income__list {
+    text-align: center; }
   .parent-container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -137,12 +219,12 @@ h1 {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1; }
-  .left {
+  .left-side {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
     width: 500px; }
-  .right {
+  .right-side {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3; } }
