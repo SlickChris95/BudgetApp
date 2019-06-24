@@ -23,6 +23,16 @@ body {
 h1 {
   color: #bdc3c7; }
 
+.budget__value {
+  background-color: white;
+  -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+  margin: 13px auto;
+  font-size: 30px;
+  color: green; }
+
 .parent-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -31,7 +41,6 @@ h1 {
   margin: 0 auto;
   background-color: #f8f9fa; }
   .parent-container .left-side {
-    background-color: #f8f9fa;
     padding: 5px;
     width: 400px; }
     .parent-container .left-side .add__menu {
@@ -47,10 +56,26 @@ h1 {
     border: 1px solid #FFDAD9; }
   .parent-container .center {
     background-color: white;
-    margin: 20px;
+    margin: 0px 20px;
     border-radius: 5px;
     -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.1);
             box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.1); }
+    .parent-container .center h1 {
+      text-align: center;
+      color: black;
+      margin-top: 5px; }
+    .parent-container .center .legend {
+      width: 100%;
+      background-color: #f8f9fa; }
+    .parent-container .center .legend-item {
+      padding: 10px; }
+      .parent-container .center .legend-item .legend-box {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        margin-right: 10px; }
+      .parent-container .center .legend-item p {
+        display: inline-block; }
 
 .add__menu {
   border: 1px solid #FFDAD9;
@@ -101,6 +126,10 @@ h1 {
   vertical-align: middle;
   line-height: 1.1;
   margin-left: 10px; }
+
+.budgetTitle {
+  font-size: 24px;
+  font-weight: bold; }
 
 .expenses__title, .income__title {
   color: black;

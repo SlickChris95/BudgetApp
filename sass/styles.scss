@@ -17,7 +17,7 @@ input[type="button"]::-moz-focus-inner {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  // border: 1px solid white;
+  // border: 1px solid black;
   font-family: 'Opens Sans',sans-serif};
 body {
   background-color:$background;
@@ -33,6 +33,19 @@ h1 {
   color: #bdc3c7;
 }
 
+.budget__value {
+  // border: 1px solid black;
+  background-color: white;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+  margin: 13px auto;
+  font-size: 30px;
+  color: green;
+}
+
+
+
 .parent-container {
   display:flex;
   width: 1000px;
@@ -40,7 +53,7 @@ h1 {
   margin: 0 auto;
   background-color: $background;
   .left-side {
-    background-color: $background;
+    // background-color: $background;
     padding: 5px;
     width: 400px;
     .add__menu {
@@ -63,9 +76,38 @@ h1 {
     // order: 1
     // border: 1px solid black;
     background-color: $item;
-    margin: 20px;
+    // margin: 20px;
+    margin: 0px 20px;
     border-radius: 5px;
     box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+    h1 {
+      text-align: center;
+      color: black;
+      margin-top: 5px;
+    }
+    .legend {
+      width: 100%;
+      background-color: #f8f9fa;
+    }
+    .legend-item {
+      padding: 10px;
+      // width: 180px;
+      // height: 50px;
+      // border: 1px solid black;
+      // display: flex;
+      // justify-content: center;
+      .legend-box {
+        width:20px;
+        height: 20px;
+        // background-color: blue;
+        display: inline-block;
+        margin-right: 10px;
+        // margin-right: 20px;
+      }
+      p {
+        display: inline-block;
+      }
+    }
 
 
   }
@@ -111,6 +153,11 @@ h1 {
     vertical-align: middle;
     line-height: 1.1;
     margin-left: 10px;
+}
+
+.budgetTitle {
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .expenses__title, .income__title{
@@ -257,6 +304,7 @@ h1 {
 }
 .center {
   order: 1;
+
 }
 .left-side {
   order: 2;

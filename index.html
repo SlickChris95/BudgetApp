@@ -17,6 +17,8 @@
   </head>
   <body>
     <h1 class="header-title">Budget Calculator</h1>
+    <div class="budget__value">0</div>
+
 <div class="parent-container">
   <div class="left-side">
     <div class="add__menu">
@@ -38,62 +40,44 @@
 
   </div>
   <div class="center">
+    <h1>Expenses chart</h1>
     <div id="chart"></div>
+    <div class="legend">
+      <!-- <div class="legend-item" id="exp-%id%">
+        <span class="legend-box" style="background-color:red;"></span>
+        <p>%description%</p>
+      </div> -->
+  </div>
   </div>
   <div class="right-side">
     <div class="container">
       <div class="income">
-        <h2 class="income__title">Income</h2>
+        <!-- <h2 class="income__title">Income</h2> -->
+        <div class="budget__income--text budgetTitle">Income</div>
+                    <div class="right">
+                        <div class="budget__income--value">0</div>
+                        <div class="budget__income--percentage">&nbsp;</div>
+                    </div>
         <div class="income__list"></div>
 
-        <div class="item clearfix" id="income-0">
-                          <div class="item__description">Salary</div>
-                          <div class="right clearfix">
-                              <div class="item__value">+ 2,100.00</div>
-                              <div class="item__delete">
-                                  <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
-                              </div>
-                          </div>
-          </div>
-          <div class="item clearfix" id="income-0">
-                            <div class="item__description">Salary</div>
-                            <div class="right clearfix">
-                                <div class="item__value">+ 2,100.00</div>
-                                <div class="item__delete">
-                                    <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
-                                </div>
-                            </div>
-            </div>
       </div>
-    </div>
-    <div class="expenses">
-      <h2 class="expenses__title">Expenses</h2>
-      <div class="expenses__list">
-        <div class="item clearfix" id="expense-1">
-                            <div class="item__description">Grocery shopping</div>
-                            <div class="right clearfix">
-                                <div class="item__value">- 435.28</div>
-                                <div class="item__percentage">10%</div>
-                                <div class="item__delete">
-                                    <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
-                                </div>
-                            </div>
-                        </div>
-        <div class="item clearfix" id="expense-1">
-                                            <div class="item__description">Grocery shopping</div>
-                                            <div class="right clearfix">
-                                                <div class="item__value">- 435.28</div>
-                                                <div class="item__percentage">10%</div>
-                                                <div class="item__delete">
-                                                    <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-      </div>
-    </div>
-  </div>
-</div>
+      <div class="expenses">
+        <!-- <h2 class="expenses__title">Expenses</h2> -->
+        <div class="budget__expenses--text budgetTitle">Expenses</div>
+                      <div class="right clearfix">
+                          <div class="budget__expenses--value">0</div>
+                          <div class="budget__expenses--percentage"></div>
+        </div>
+        <div class="expenses__list">
 
-  <script src="pie.js"></script>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- <script src="app.js"></script> -->
+  <script src="script.js"></script>
   </body>
 </html>
