@@ -1,7 +1,6 @@
 {
   "name": "budgetapp",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "browser-sync": "^2.26.3",
@@ -13,5 +12,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Christian Torres",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SlickChris95/BudgetApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SlickChris95/BudgetApp/issues"
+  },
+  "homepage": "https://github.com/SlickChris95/BudgetApp#readme",
+  "description": ""
 }
