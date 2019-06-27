@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-
+/* cash app theme */
 $slate: blue;
 $item: white;
 $primary: TOMATO;
-$background: #f8f9fa;
+$background: #0bb634;
 $text-color: black;
 $borderCard: #FFDAD9;
 input[type="button"]{
@@ -30,7 +30,7 @@ body {
 }
 
 h1 {
-  color: #bdc3c7;
+  color: white;
 }
 
 .budget__value {
