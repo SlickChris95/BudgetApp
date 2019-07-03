@@ -1,21 +1,21 @@
 
 
 //BUDGET CONTROLLER
-var budgetController = (function(){
+let budgetController = (function(){
   //function constructor for exp and income
-  var Expense = function(id, description,value,color){
+  const Expense = function(id, description,value,color){
     this.id = id;
     this.description = description;
     this.value = value;
     this.color = color;
   };
-  var Income = function(id, description,value){
+  const Income = function(id, description,value){
     this.id = id;
     this.description = description;
     this.value = value;
   };
 
-  var data = {
+  let data = {
     allItems: {
       exp: [],
       inc: []
@@ -27,39 +27,33 @@ var budgetController = (function(){
     budget: 0,
     percentage: -1
   }
-  var calculateTotal = function(type){
-    var sum = 0;
-    var x =[];
+  let calculateTotal = type => {
+    let sum = 0;
+    let x =[];
 
-      x = data.allItems[type].map(function(exp){
-        //update the totals exp
-        return exp.value;
-      });
+      x = data.allItems[type].map(exp => exp.value);
       if(x.length > 0){
-        sum = x.reduce(function(a,b){
-          return a + b;
-        });
+        sum = x.reduce((a,b) => a + b);
       }else {
         sum = 0;
       }
 
       data.totals[type] = sum;
   }
- var deleteColor = function(index){
-    color.splice(index,1);
-  }
+ let deleteColor = index => color.splice(index,1);
+
 
   /* chart */
 
-  var margin = {top: 20, right: 20, bottom: 20, left: 20},
+  let margin = {top: 20, right: 20, bottom: 20, left: 20},
     width = 500 - margin.right - margin.left,
     height = 500 - margin.top - margin.bottom,
     radius = width/2;
-  var color = [];
+  let color = [];
 
   return {
     //this color is different than the color we are assigning
-    chartVar: function(){
+    chartvar: function(){
       return {
         margin: margin,
         width: width,
@@ -68,19 +62,19 @@ var budgetController = (function(){
         color: color
       }
     },
-    randomRGB: function(){
-      return ('rgb'+'('+ Math.floor(Math.random() * 256) +','+ Math.floor(Math.random() * 256) +',' + Math.floor(Math.random() * 256) +')');
+    randomRGB: () => {
+      // return ('rgb'+'('+ Math.floor(Math.random() * 256) +','+ Math.floor(Math.random() * 256) +',' + Math.floor(Math.random() * 256) +')');
+      return (`rgb(${ Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`);
     },
     updateData: function(){
-      var valueData = [];
-      data.allItems['exp'].forEach(function(el){
-        valueData.push(el.value);
-      });
+      let valueData = [];
+      data.allItems['exp'].forEach(el =>
+        valueData.push(el.value));
       console.log('updateData' + valueData);
       return valueData;
     },
     addItem: function(type,desc,val,color){
-      var newItem, id;
+      let newItem, id;
       //assigns id to item
       //the last id will always be the largest
       if(data.allItems[type].length > 0){
@@ -120,7 +114,7 @@ var budgetController = (function(){
       }
     },
     deleteItem: function(type,id){
-      var x,index;
+      let x,index;
       // makes array of just Ids
        x = data.allItems[type].map(function(exp){
         return exp.id;
@@ -139,9 +133,9 @@ var budgetController = (function(){
   };
 })();
 //UI CONTROLLER
-var UIcontroller = (function(){
+let UIcontroller = (function(){
 //put into object to make it more manageable
-var DOMstrings = {
+let DOMstrings = {
   inputType: '.add__type',
   inputDescription: '.add-name',
   inputValue: '.add-value',
@@ -168,7 +162,7 @@ return {
     return DOMstrings;
   },
   addListItem: function(obj,type){
-    var html,newHTML,element;
+    let html,newHTML,element;
 
     if(type === 'inc'){
       element = DOMstrings.incomeContainer;
@@ -186,7 +180,7 @@ return {
 
   },
   addLegendItem: function(obj){
-    var html,newHTML,element;
+    let html,newHTML,element;
     element = DOMstrings.legend;
     html = '<div class="legend-item" id="legend-%id%"><span class="legend-box" style="background-color:%color%;"></span><p>%description%</p></div>'
     newHTML = html.replace('%id%',obj.id);
@@ -199,12 +193,13 @@ return {
 
   },
   clearFields: function(){
-    var fields, fieldsArr;
+    let fields, fieldsArr;
     //this will return a nodeList
     fields = document.querySelectorAll(DOMstrings.inputDescription + ', ' +
     DOMstrings.inputValue);
     //this allows us to clear each of the fields
-    fieldsArr = Array.prototype.slice.call(fields)
+    // fieldsArr = Array.prototype.slice.call(fields)
+    fieldsArr = Array.from(fields)
 
     fieldsArr.forEach(function(current,i,Array){
         current.value = "";
@@ -226,23 +221,23 @@ return {
     }
   },
   deleteListItem: function(itemID){
-    var el = document.getElementById(itemID);
+    let el = document.getElementById(itemID);
     //we traverse one branch up from tree and then delete
     el.parentNode.removeChild(el);
 
   },
   deleteLegendItem: function(id){
 
-    var el = document.getElementById("legend-" +id);
+    let el = document.getElementById("legend-" +id);
     //move up the tree and then delete removeChild
     el.parentNode.removeChild(el);
   }
 }
 })();
 
-var controller = (function(budgetCtrl,UICtrl){
-  var setupEventListeners = function(){
-    var DOM = UICtrl.getDOMstrings();
+let controller = (function(budgetCtrl,UICtrl){
+  let setupEventListeners = function(){
+    let DOM = UICtrl.getDOMstrings();
     //when button is pressed
     document.querySelector(DOM.inputBtn).addEventListener('click',ctrlAddItem);
     //when user presses enter
@@ -259,11 +254,11 @@ var controller = (function(budgetCtrl,UICtrl){
     document.querySelector(DOM.container).addEventListener('click',ctrlDeleteItem);
   }
 
-  var updateBudget = function(){
+  let updateBudget = function(){
     //1.calculate the budget
     budgetCtrl.calculateBudget();
     //2.return the budget
-    var budget = budgetCtrl.getBudget()
+    let budget = budgetCtrl.getBudget()
     //3.update the budget on the UI
     UIcontroller.displayBudget(budget);
 
@@ -271,8 +266,8 @@ var controller = (function(budgetCtrl,UICtrl){
 
 
 
-  var ctrlAddItem = function(){
-    var input, newItem,colorPassed;
+  let ctrlAddItem = function(){
+    let input, newItem,colorPassed;
     //1.Get the filled input data
     input = UICtrl.getInput();
     //2. add the item to the budgetController
@@ -281,7 +276,7 @@ var controller = (function(budgetCtrl,UICtrl){
         //will  push the color so we can display graph
         colorPassed = budgetCtrl.randomRGB();
         newItem = budgetCtrl.addItem(input.type,input.description,input.value,colorPassed );
-        budgetCtrl.chartVar().color.push(colorPassed);
+        budgetCtrl.chartvar().color.push(colorPassed);
         updateChart();
         //will update legend
         UICtrl.addLegendItem(newItem);
@@ -297,8 +292,8 @@ var controller = (function(budgetCtrl,UICtrl){
       updateBudget();
     }
   }
-  var ctrlDeleteItem = function(event){
-    var itemId, splitID,type,id;
+  let ctrlDeleteItem = function(event){
+    let itemId, splitID,type,id;
     itemId = event.target.parentNode.parentNode.parentNode.parentNode.id;
     // console.log(itemId);
     if(itemId){
@@ -316,8 +311,8 @@ var controller = (function(budgetCtrl,UICtrl){
       if(type === 'exp'){
         console.log('deleted');
         svg.selectAll("*").remove();
-        // budgetCtrl.chartVar().color.push(colorPassed);
-        console.log(budgetCtrl.chartVar().color);
+        // budgetCtrl.chartvar().color.push(colorPassed);
+        console.log(budgetCtrl.chartvar().color);
         updateChart();
         //delete the color from array
         //delete legendaccording to color
@@ -334,44 +329,44 @@ var controller = (function(budgetCtrl,UICtrl){
 
 
   }
-  var width = budgetCtrl.chartVar().width;
-  var height = budgetCtrl.chartVar().height;
-  var radius = budgetCtrl.chartVar().radius;
+  let width = budgetCtrl.chartvar().width;
+  let height = budgetCtrl.chartvar().height;
+  let radius = budgetCtrl.chartvar().radius;
 
   /*
   **** chart: connect with budgetCtrl with data
   */
-  var svg = d3.select("#chart")//select element with id 'chart'
+  let svg = d3.select("#chart")//select element with id 'chart'
       .append("svg") //append an svg element to the element we've selected
       .attr("width", width) //set the width of the svg element
       .attr("height", height) //set the height of the svg element
       .append("g")
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-  var render = function(data){
+  let render = function(data){
     console.log(`data ${data}`);
-    console.log(`colorsArr ${budgetCtrl.chartVar().color}`);
-    var pies = d3.layout.pie()
+    console.log(`colorsArr ${budgetCtrl.chartvar().color}`);
+    let pies = d3.layout.pie()
       .sort(null);
-    var arc = d3.svg.arc()
+    let arc = d3.svg.arc()
       .innerRadius(radius - 100)
       .outerRadius(radius - 50);
-    var path = svg.selectAll('path')
+    let path = svg.selectAll('path')
       .data(pies(data));
-    // var pathEnter = path.enter().append("path")
+    // let pathEnter = path.enter().append("path")
     //   .attr('fill',function(d,i)){
     //     return color[i];
     //   }.attr('d',arc);
-    var pathEnter = path.enter().append("path")
+    let pathEnter = path.enter().append("path")
         .attr("fill", function(d, i) {
-            return budgetCtrl.chartVar().color[i];
+            return budgetCtrl.chartvar().color[i];
             // return budgetCtrl.data.allItems.exp.color[i];
         }).attr("d", arc);
-        // console.log(budgetCtrl.chartVar().color);
+        // console.log(budgetCtrl.chartvar().color);
         console.log('changed color')
-    var pathUpdate = path.attr('d',arc);
+    let pathUpdate = path.attr('d',arc);
   }
 
-  var updateChart = function(){
+  let updateChart = function(){
     render(budgetCtrl.updateData());
   }
 
